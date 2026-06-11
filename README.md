@@ -39,6 +39,7 @@ flowchart TD
 |---|---|
 | [`arvore.md`](arvore.md) | Fichas individuais de cada pessoa, com todos os dados extraídos dos documentos |
 | [`cidadania-italiana.md`](cidadania-italiana.md) | Análise do caso, checklist de documentos e pendências |
+| [`caca-documentos.md`](caca-documentos.md) | Guia prático para localizar cada documento faltante (cartórios, Arquivo Nacional, Portale Antenati, comune) |
 | [`documentos/`](documentos/) | Cópias digitais dos documentos já obtidos |
 
 ## Resumo do caso
