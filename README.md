@@ -8,7 +8,12 @@ com foco inicial no **lado materno (Rossi / das Neves)** para fins de
 
 ```mermaid
 flowchart TD
-    FR["Francesco Rossi"] --- PF["Pasqua Fracassi"]
+    GR["Giovanni Rossi"] --- MRDP["Maria Rosaria Del Principe"]
+    DF["Domenico Fracassi"] --- GS["Giovanna Saltarelli"]
+    GR & MRDP --> FR
+    DF & GS --> PF
+
+    FR["Francesco Luigi Rossi<br/>n. ~1835 — Pescasseroli<br/>pastor"] --- PF["Maria Pasquala Fracassi<br/>n. ~1836 — Pescasseroli<br/>casamento: 09/07/1859"]
     FR & PF --> NICOLA
 
     BS["Biagio Schettina"] --- MVO["Maria Vincenza Oliva"]

@@ -76,15 +76,24 @@
 1 FAMC @F6@
 1 FAMS @F4@
 0 @I9@ INDI
-1 NAME Francesco /Rossi/
+1 NAME Francesco Luigi /Rossi/
 1 SEX M
+1 BIRT
+2 DATE ABT 1835
+2 PLAC Pescasseroli, L'Aquila, Abruzzo, Italia
+1 OCCU Pastore
+1 FAMC @F8@
 1 FAMS @F5@
-1 NOTE Presumivelmente de Pescasseroli (AQ), Italia.
+1 NOTE 24 anos ao casar em 1859; sabia assinar. Fonte: atto di matrimonio n. 5/1859, Pescasseroli (Antenati, ark:/12657/an_ua19316868, img 10).
 0 @I10@ INDI
-1 NAME Pasqua /Fracassi/
+1 NAME Maria Pasquala /Fracassi/
 1 SEX F
+1 BIRT
+2 DATE ABT 1836
+2 PLAC Pescasseroli, L'Aquila, Abruzzo, Italia
+1 FAMC @F9@
 1 FAMS @F5@
-1 NOTE Grafia "Fracassi Pasqua" no certificato di nascita italiano; "Pasqualina Francasso" no obito brasileiro do filho.
+1 NOTE "Pasqua" no certificato di nascita do filho Nicola; "Pasqualina Francasso" (corruptela) no obito brasileiro. 23 anos ao casar em 1859.
 0 @I11@ INDI
 1 NAME Biagio /Schettina/
 1 SEX M
@@ -112,6 +121,10 @@
 1 HUSB @I9@
 1 WIFE @I10@
 1 CHIL @I7@
+1 MARR
+2 DATE 9 JUL 1859
+2 PLAC Pescasseroli, L'Aquila, Abruzzo, Italia
+2 NOTE Atto n. 5/1859. Imagem em documentos/atto-matrimonio-1859-francesco-rossi-x-pasqua-fracassi-pescasseroli.jpg
 0 @F6@ FAM
 1 HUSB @I11@
 1 WIFE @I12@
@@ -124,4 +137,37 @@
 2 PLAC Sao Paulo, SP, Brasil (29o Subdistrito Santo Amaro)
 1 DIV
 2 DATE 10 DEC 1980
+0 @I13@ INDI
+1 NAME Giovanni /Rossi/
+1 SEX M
+1 OCCU Pastore
+1 FAMS @F8@
+1 NOTE Vivo em 1859; assinou o atto de casamento do filho. Provavel origem do segundo nome de Nicola Giovanni Rossi.
+0 @I14@ INDI
+1 NAME Maria Rosaria /Del Principe/
+1 SEX F
+1 OCCU Filatrice
+1 FAMS @F8@
+1 NOTE Viva em 1859; nao sabia escrever.
+0 @I15@ INDI
+1 NAME Domenico /Fracassi/
+1 SEX M
+1 OCCU Pastore
+1 FAMS @F9@
+1 NOTE Vivo em 1859; assinou como "Domenico Fracasso".
+0 @I16@ INDI
+1 NAME Giovanna /Saltarelli/
+1 SEX F
+1 DEAT
+2 DATE BEF JUL 1859
+2 NOTE Certidao de obito apresentada no casamento da filha em 1859.
+1 FAMS @F9@
+0 @F8@ FAM
+1 HUSB @I13@
+1 WIFE @I14@
+1 CHIL @I9@
+0 @F9@ FAM
+1 HUSB @I15@
+1 WIFE @I16@
+1 CHIL @I10@
 0 TRLR

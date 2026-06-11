@@ -98,14 +98,42 @@ fornecidas em imagem (óbitos de Nicola e Maria Schettina, nascimento italiano d
 
 ## Geração 5 — Tetravós (Itália)
 
-### Francesco Rossi
-- Pai de Nicola Giovanni Rossi — presumivelmente de Pescasseroli (AQ)
+### Francesco Luigi Rossi
+- **Nascimento:** ~1835, Pescasseroli (AQ) — tinha 24 anos ao casar em 1859
+- **Profissão:** pastor (pastore)
+- **Pais:** Giovanni Rossi (pastor) e Maria Rosaria Del Principe (fiandeira)
+- **Casamento:** 09/07/1859, Pescasseroli, com Maria Pasquala Fracassi —
+  atto n. 5/1859, encontrado no Portale Antenati
+  (ver [`pesquisa-pescasseroli.md`](pesquisa-pescasseroli.md) e
+  [imagem do ato](documentos/atto-matrimonio-1859-francesco-rossi-x-pasqua-fracassi-pescasseroli.jpg))
+- Sabia assinar (assinatura no ato)
 
-### Pasqua Fracassi
-- Mãe de Nicola Giovanni Rossi — presumivelmente de Pescasseroli (AQ)
+### Maria Pasquala Fracassi ("Pasqua")
+- **Nascimento:** ~1836, Pescasseroli (AQ) — 23 anos ao casar
+- **Pais:** Domenico Fracassi (pastor) e Giovanna Saltarelli (falecida antes de 1859)
+- Grafia correta do sobrenome: **Fracassi** (o "Francasso" do óbito brasileiro
+  de Nicola é corruptela)
 
 ### Biagio Schettina
-- Pai de Maria Schettina
+- Pai de Maria Schettina — região de origem desconhecida (nenhum Schettina em
+  Pescasseroli 1850–1865; sobrenome típico da Campânia)
 
 ### Maria Vincenza Oliva
 - Mãe de Maria Schettina
+
+---
+
+## Geração 6 — Pentavós (Pescasseroli)
+
+### Giovanni Rossi
+- Pastor, vivo em 1859 (presente e consentiu no casamento do filho; assinou o ato)
+- O segundo nome de Nicola (**Giovanni**) provavelmente o homenageia
+
+### Maria Rosaria Del Principe
+- Fiandeira (filatrice), viva em 1859; não sabia escrever
+
+### Domenico Fracassi
+- Pastor, vivo em 1859 (assinou o ato como "Domenico Fracasso")
+
+### Giovanna Saltarelli
+- Falecida antes de 07/1859 (certidão de óbito apresentada no casamento da filha)
