@@ -1,0 +1,127 @@
+0 HEAD
+1 SOUR family-tree-repo
+2 NAME Arvore Familia das Neves / Rossi
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 LANG Portuguese
+0 @I1@ INDI
+1 NAME Fabian Marcel /das Neves Lima/
+1 SEX M
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Flavia Cristina /Aguiar das Neves/
+1 SEX F
+1 FAMC @F2@
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Fabiano /Rossi das Neves/
+1 SEX M
+1 BIRT
+2 DATE 26 OCT 1941
+2 PLAC Rio de Janeiro, RJ, Brasil
+1 OCCU Advogado
+1 FAMC @F3@
+1 FAMS @F2@
+1 FAMS @F7@
+1 NOTE Viuvo ao casar-se em 1974 (1a esposa desconhecida, possivelmente mae de Flavia - a confirmar). Fonte: certidao de casamento 29o Subdistrito Santo Amaro SP, livro B-0096, fls. 148, no 27273.
+0 @I4@ INDI
+1 NAME Rosemarie /de Paiva Souza/
+1 SEX F
+1 BIRT
+2 DATE 27 AUG 1946
+2 PLAC Piraju, SP, Brasil
+1 FAMS @F7@
+1 NOTE Filha de Pedro Francisco de Souza e Hodirma de Paiva Souza. Casamento com Fabiano dissolvido (desquite 11/07/1977, divorcio registrado 10/12/1980).
+0 @I5@ INDI
+1 NAME Arlindo Jose /das Neves/
+1 SEX M
+1 FAMS @F3@
+1 NOTE Declarante do obito de Maria Schettina Rossi em 1946.
+0 @I6@ INDI
+1 NAME Maria Narcisa /Rossi das Neves/
+1 SEX F
+1 FAMC @F4@
+1 FAMS @F3@
+1 NOTE Filha de Nicola Giovanni Rossi e Maria Schettina (a confirmar com certidao de nascimento). Elo da linha italiana.
+0 @I7@ INDI
+1 NAME Nicola Giovanni /Rossi/
+1 SEX M
+1 BIRT
+2 DATE 11 APR 1867
+2 PLAC Pescasseroli, L'Aquila, Abruzzo, Italia
+2 NOTE Atto n. 44/1867, Comune di Pescasseroli. Certificato di nascita emitido em 12/08/2013.
+1 DEAT
+2 DATE 8 MAR 1943
+2 PLAC Rua Duque de Caxias 21, Rio de Janeiro, RJ, Brasil
+2 CAUS Edema agudo do pulmao, insuficiencia cardio-hepato-renal
+2 NOTE Registro: 8a Circunscricao RCPN (Tijuca/RJ), livro C-203, fl. 156, no 32285. Sepultado no Cemiterio Sao Joao Batista.
+1 OCCU Funcionario da Marinha
+1 FAMC @F5@
+1 FAMS @F4@
+1 NOTE Dante causa da cidadania italiana. Nunca se naturalizou brasileiro (certidoes negativas Ministerio da Justica, 26/03/2026). Deixou 7 filhos.
+0 @I8@ INDI
+1 NAME Maria /Schettina/
+1 SEX F
+1 BIRT
+2 DATE ABT 1865
+2 PLAC Italia
+2 NOTE Comune de nascimento desconhecido (81 anos ao falecer em 1946).
+1 DEAT
+2 DATE 26 JUL 1946
+2 PLAC Rua Duque de Caxias 21, Rio de Janeiro, RJ, Brasil
+2 CAUS Endocardite aguda
+2 NOTE Registro: 8o RCPN da Capital (RJ), livro C-220, fl. 014, termo 42201. Matricula 093146 01 55 1946 4 00220 014 0042201 10. Sepultada no Cemiterio Sao Joao Batista.
+1 FAMC @F6@
+1 FAMS @F4@
+0 @I9@ INDI
+1 NAME Francesco /Rossi/
+1 SEX M
+1 FAMS @F5@
+1 NOTE Presumivelmente de Pescasseroli (AQ), Italia.
+0 @I10@ INDI
+1 NAME Pasqua /Fracassi/
+1 SEX F
+1 FAMS @F5@
+1 NOTE Grafia "Fracassi Pasqua" no certificato di nascita italiano; "Pasqualina Francasso" no obito brasileiro do filho.
+0 @I11@ INDI
+1 NAME Biagio /Schettina/
+1 SEX M
+1 FAMS @F6@
+0 @I12@ INDI
+1 NAME Maria Vincenza /Oliva/
+1 SEX F
+1 FAMS @F6@
+0 @F1@ FAM
+1 WIFE @I2@
+1 CHIL @I1@
+0 @F2@ FAM
+1 HUSB @I3@
+1 CHIL @I2@
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I3@
+0 @F4@ FAM
+1 HUSB @I7@
+1 WIFE @I8@
+1 CHIL @I6@
+1 NOTE Casamento em local/data desconhecidos (Italia ou Brasil). 7 filhos no total.
+0 @F5@ FAM
+1 HUSB @I9@
+1 WIFE @I10@
+1 CHIL @I7@
+0 @F6@ FAM
+1 HUSB @I11@
+1 WIFE @I12@
+1 CHIL @I8@
+0 @F7@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 MARR
+2 DATE 31 AUG 1974
+2 PLAC Sao Paulo, SP, Brasil (29o Subdistrito Santo Amaro)
+1 DIV
+2 DATE 10 DEC 1980
+0 TRLR
