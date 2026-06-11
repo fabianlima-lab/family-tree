@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Árvore Genealógica — das Neves · Rossi</title>
+<style>
+  :root{
+    --bg:#10141c; --panel:#1a2030; --card:#202940; --card2:#26314e;
+    --ink:#e8e4d8; --muted:#9aa3b8; --gold:#d4af37; --green:#3fae6a;
+    --line:#3a4666; --hl:#d4af37;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 50% -100px,#1c2436 0%,var(--bg) 60%);
+       color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+  header{text-align:center;padding:38px 16px 10px}
+  header h1{font-size:clamp(1.5rem,4vw,2.4rem);margin:0;letter-spacing:.5px}
+  header h1 .amp{color:var(--gold);font-style:italic}
+  header p{color:var(--muted);margin:.6em auto 0;max-width:640px;font-size:.95rem;line-height:1.5}
+  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px;
+          font-size:.8rem;color:var(--muted);font-family:Verdana,sans-serif}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+  #treewrap{position:relative;overflow-x:auto;padding:10px 0 40px}
+  #tree{position:relative;min-width:840px;max-width:1100px;margin:0 auto;padding:0 20px}
+  svg#wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  .gen{position:relative;z-index:1;display:flex;justify-content:center;gap:34px;margin:0 0 56px;flex-wrap:nowrap}
+  .gen-label{position:absolute;left:8px;transform:translateY(-32px);color:var(--muted);
+             font-family:Verdana,sans-serif;font-size:.66rem;text-transform:uppercase;letter-spacing:2px}
+  .couple{display:flex;gap:10px;align-items:stretch;position:relative;padding:10px;border-radius:14px;
+          background:rgba(255,255,255,.025);border:1px dashed rgba(255,255,255,.08)}
+  .couple .ring{position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+                background:var(--bg);padding:0 8px;font-size:.62rem;color:var(--gold);
+                font-family:Verdana,sans-serif;white-space:nowrap}
+  .card{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);
+        border-radius:10px;padding:12px 14px;width:200px;cursor:pointer;transition:.18s;
+        box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+  .card.line{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 6px 16px rgba(212,175,55,.15)}
+  .card .flag{float:right;font-size:1rem}
+  .card h3{margin:0 0 4px;font-size:.92rem;line-height:1.25}
+  .card .dates{color:var(--gold);font-size:.74rem;font-family:Verdana,sans-serif}
+  .card .place{color:var(--muted);font-size:.72rem;margin-top:3px;line-height:1.35}
+  .card .occ{color:#8fc7a5;font-size:.7rem;font-style:italic;margin-top:3px}
+  #panel{position:fixed;right:0;top:0;bottom:0;width:min(380px,92vw);background:var(--panel);
+         border-left:1px solid var(--line);padding:26px 22px;transform:translateX(105%);
+         transition:.25s;z-index:10;overflow-y:auto;box-shadow:-10px 0 30px rgba(0,0,0,.5)}
+  #panel.open{transform:none}
+  #panel h2{margin:0 0 2px;color:var(--gold);font-size:1.2rem}
+  #panel .sub{color:var(--muted);font-size:.8rem;font-family:Verdana,sans-serif;margin-bottom:14px}
+  #panel dl{font-size:.85rem;line-height:1.55}
+  #panel dt{color:var(--muted);font-family:Verdana,sans-serif;font-size:.68rem;
+            text-transform:uppercase;letter-spacing:1.5px;margin-top:12px}
+  #panel dd{margin:2px 0 0}
+  #panel .close{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);
+                font-size:1.4rem;cursor:pointer}
+  footer{text-align:center;color:var(--muted);font-size:.74rem;font-family:Verdana,sans-serif;
+         padding:18px 16px 36px;line-height:1.7}
+  footer a{color:var(--gold)}
+  @media(max-width:700px){ .card{width:152px;padding:9px 10px} .gen{gap:16px} #tree{min-width:700px} }
+</style>
+</head>
+<body>
+<header>
+  <h1>Família das Neves <span class="amp">&amp;</span> Rossi</h1>
+  <p>De Pescasseroli, nos Abruzos, ao Rio de Janeiro — sete gerações documentadas.
+     Clique em uma pessoa para ver detalhes e fontes.</p>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--gold)"></span> linha de transmissão da cidadania italiana</span>
+    <span>🇮🇹 nascido(a) na Itália</span>
+    <span>🇧🇷 nascido(a) no Brasil</span>
+  </div>
+</header>
+
+<div id="treewrap"><div id="tree"><svg id="wires"></svg></div></div>
+
+<aside id="panel">
+  <button class="close" onclick="panel.classList.remove('open')">×</button>
+  <h2 id="p-name"></h2>
+  <div class="sub" id="p-sub"></div>
+  <dl id="p-body"></dl>
+</aside>
+
+<footer>
+  Gerado a partir do <a href="arvore.ged">arvore.ged</a> (GEDCOM) deste repositório ·
+  pesquisa documental em cartórios do RJ e no Portale Antenati ·
+  <a href="https://github.com/fabianlima-lab/family-tree">fabianlima-lab/family-tree</a>
+</footer>
+
+<script>
+/* ---------- mini parser GEDCOM ---------- */
+async function loadGed(){
+  const txt = await (await fetch('arvore.ged')).text();
+  const lines = txt.split(/\r?\n/);
+  const recs = {}; let cur=null, ctx=[];
+  for(const ln of lines){
+    const m = ln.match(/^(\d+)\s+(@[^@]+@\s+)?(\S+)(?:\s(.*))?$/);
+    if(!m) continue;
+    const lvl=+m[1], id=m[2]?m[2].trim():null, tag=m[3], val=m[4]||'';
+    if(lvl===0){ cur = id ? (recs[id]={id,tag,sub:[]}) : {sub:[]}; ctx=[cur]; continue; }
+    if(!cur) continue;
+    ctx.length=lvl; const node={tag,val,sub:[]};
+    (ctx[lvl-1]||cur).sub.push(node); ctx[lvl]=node;
+  }
+  return recs;
+}
+const g1=(n,t)=>n.sub.find(s=>s.tag===t);
+const gA=(n,t)=>n.sub.filter(s=>s.tag===t);
+const MES={JAN:'jan',FEB:'fev',MAR:'mar',APR:'abr',MAY:'mai',JUN:'jun',JUL:'jul',AUG:'ago',SEP:'set',OCT:'out',NOV:'nov',DEC:'dez'};
+function fdate(d){ if(!d) return '';
+  return d.replace(/^ABT /,'~').replace(/^BEF /,'antes de ').replace(/^AFT /,'depois de ')
+          .replace(/\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b/g,x=>MES[x]); }
+function year(d){ const m=(d||'').match(/\d{4}/); return m?m[0]:''; }
+
+/* ---------- modelo ---------- */
+function build(recs){
+  const P={},F={};
+  for(const id in recs){ const r=recs[id];
+    if(r.tag==='INDI'){
+      const name=(g1(r,'NAME')||{}).val||'';
+      const birt=g1(r,'BIRT'), deat=g1(r,'DEAT');
+      P[id]={id, name:name.replace(/\//g,''),
+        sex:(g1(r,'SEX')||{}).val,
+        bd:birt?(g1(birt,'DATE')||{}).val:'', bp:birt?(g1(birt,'PLAC')||{}).val:'',
+        dd:deat?(g1(deat,'DATE')||{}).val:'', dp:deat?(g1(deat,'PLAC')||{}).val:'',
+        dc:deat?(g1(deat,'CAUS')||{}).val:'',
+        occ:(g1(r,'OCCU')||{}).val||'',
+        note:gA(r,'NOTE').map(n=>n.val).join(' '),
+        bnote:birt&&g1(birt,'NOTE')?g1(birt,'NOTE').val:'',
+        dnote:deat&&g1(deat,'NOTE')?g1(deat,'NOTE').val:'',
+        famc:(g1(r,'FAMC')||{}).val, fams:gA(r,'FAMS').map(s=>s.val)};
+    }
+    if(r.tag==='FAM'){
+      const marr=g1(r,'MARR');
+      F[id]={id,h:(g1(r,'HUSB')||{}).val,w:(g1(r,'WIFE')||{}).val,
+        kids:gA(r,'CHIL').map(c=>c.val),
+        md:marr?(g1(marr,'DATE')||{}).val:'', mp:marr?(g1(marr,'PLAC')||{}).val:'',
+        note:(g1(r,'NOTE')||{}).val||''};
+    }
+  }
+  return {P,F};
+}
+
+/* linha de ascendência a partir de I1 */
+function ancestry(P,F,rootId){
+  const lineSet=new Set([rootId]); const gens=[[ [null,rootId] ]]; // [famId, personId]
+  let frontier=[rootId];
+  while(true){
+    const next=[],row=[];
+    for(const pid of frontier){
+      const fam=F[P[pid].famc]; if(!fam) continue;
+      row.push([fam.id,fam.h,fam.w]);
+      for(const par of [fam.h,fam.w]) if(par){ lineSet.add(par); next.push(par); }
+    }
+    if(!row.length) break;
+    gens.push(row); frontier=next;
+  }
+  return {gens,lineSet};
+}
+
+/* ---------- render ---------- */
+const tree=document.getElementById('tree'), wires=document.getElementById('wires'),
+      panel=document.getElementById('panel');
+let DATA;
+const GENLABEL=['Requerente','Pais','Avós','Bisavós','Trisavós','Tetravós','Pentavós','Hexavós'];
+
+function flag(p){ const t=(p.bp||'')+' '+(p.note||'');
+  if(/Ital/i.test(p.bp)) return '🇮🇹'; if(/Brasil/i.test(p.bp)) return '🇧🇷'; return ''; }
+
+function cardHTML(p,inLine){
+  const y1=year(p.bd),y2=year(p.dd);
+  const dates=y1||y2?`${y1?(p.bd.startsWith('ABT')?'~':'')+y1:'?'} – ${y2||(p.dd?fdate(p.dd):'')}`:'';
+  return `<div class="card ${inLine?'line':''}" data-id="${p.id}" id="card-${p.id.replace(/@/g,'')}">
+    <span class="flag">${flag(p)}</span>
+    <h3>${p.name}</h3>
+    <div class="dates">${dates}</div>
+    ${p.bp?`<div class="place">${p.bp.split(',').slice(0,2).join(',')}</div>`:''}
+    ${p.occ?`<div class="occ">${p.occ.toLowerCase()}</div>`:''}
+  </div>`;
+}
+
+function render(){
+  const {P,F}=DATA;
+  const {gens,lineSet}=ancestry(P,F,'@I1@');
+  tree.querySelectorAll('.gen').forEach(e=>e.remove());
+  // do topo (mais antigo) para a base
+  for(let gi=gens.length-1;gi>=0;gi--){
+    const row=document.createElement('div'); row.className='gen'; row.dataset.gen=gi;
+    row.innerHTML=`<div class="gen-label">${GENLABEL[gi]||'G'+gi}</div>`;
+    for(const grp of gens[gi]){
+      if(gi===0){ row.innerHTML+=cardHTML(P[grp[1]],true); continue; }
+      const [famId,h,w]=grp; const f=F[famId];
+      const ring=f.md?`💍 ${fdate(f.md)}`:'';
+      let html=`<div class="couple" data-fam="${famId}">${ring?`<span class="ring">${ring}</span>`:''}`;
+      for(const pid of [h,w]) if(pid) html+=cardHTML(P[pid],lineSet.has(pid));
+      html+='</div>';
+      row.innerHTML+=html;
+    }
+    tree.appendChild(row);
+  }
+  tree.addEventListener('click',e=>{
+    const c=e.target.closest('.card'); if(c) openPanel(c.dataset.id);
+  });
+  requestAnimationFrame(drawWires);
+}
+
+function drawWires(){
+  const {P,F}=DATA, tb=tree.getBoundingClientRect();
+  wires.setAttribute('viewBox',`0 0 ${tb.width} ${tb.height}`);
+  wires.innerHTML='';
+  const pos=id=>{ const el=document.getElementById('card-'+id.replace(/@/g,'')); if(!el) return null;
+    const r=el.getBoundingClientRect();
+    return {x:r.left-tb.left+r.width/2, top:r.top-tb.top, bot:r.top-tb.top+r.height}; };
+  const famEl=fid=>tree.querySelector(`[data-fam="${fid}"]`);
+  for(const fid in F){ const f=F[fid]; const fe=famEl(fid); if(!fe) continue;
+    const fr=fe.getBoundingClientRect();
+    const fx=fr.left-tb.left+fr.width/2, fy=fr.top-tb.top+fr.height;
+    for(const kid of f.kids){ const k=pos(kid); if(!k) continue;
+      const midY=(fy+k.top)/2;
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',`M ${fx} ${fy} C ${fx} ${midY}, ${k.x} ${midY}, ${k.x} ${k.top}`);
+      path.setAttribute('fill','none');
+      const inLine=document.getElementById('card-'+kid.replace(/@/g,''))?.classList.contains('line');
+      path.setAttribute('stroke',inLine?'#d4af37':'#3a4666');
+      path.setAttribute('stroke-width',inLine?2:1.3);
+      path.setAttribute('opacity',inLine?.9:.7);
+      wires.appendChild(path);
+    }
+  }
+}
+
+function openPanel(id){
+  const p=DATA.P[id]; if(!p) return;
+  document.getElementById('p-name').textContent=p.name;
+  document.getElementById('p-sub').textContent=p.occ||'';
+  const rows=[];
+  if(p.bd||p.bp) rows.push(['Nascimento',[fdate(p.bd),p.bp].filter(Boolean).join(' — ')+(p.bnote?` · ${p.bnote}`:'')]);
+  if(p.dd||p.dp) rows.push(['Falecimento',[fdate(p.dd),p.dp].filter(Boolean).join(' — ')+(p.dc?` · causa: ${p.dc.toLowerCase()}`:'')+(p.dnote?` · ${p.dnote}`:'')]);
+  for(const fid of p.fams){ const f=DATA.F[fid]; if(!f) continue;
+    const sp=f.h===id?f.w:f.h;
+    if(sp) rows.push(['Cônjuge',DATA.P[sp].name+(f.md?` (casamento: ${fdate(f.md)}${f.mp?', '+f.mp.split(',')[0]:''})`:'')]);
+    if(f.kids.length) rows.push(['Filhos(as) documentados',f.kids.map(k=>DATA.P[k].name).join('; ')]);
+    if(f.note) rows.push(['Sobre o casamento',f.note]);
+  }
+  const fam=DATA.F[p.famc];
+  if(fam){ const pais=[fam.h,fam.w].filter(Boolean).map(x=>DATA.P[x].name).join(' e ');
+    if(pais) rows.push(['Filiação',pais]); }
+  if(p.note) rows.push(['Notas e fontes',p.note]);
+  document.getElementById('p-body').innerHTML=rows.map(([t,v])=>`<dt>${t}</dt><dd>${v}</dd>`).join('');
+  panel.classList.add('open');
+}
+
+addEventListener('resize',()=>requestAnimationFrame(drawWires));
+loadGed().then(r=>{ DATA=build(r); render(); })
+ .catch(e=>{ tree.innerHTML='<p style="color:#e66">Não foi possível carregar arvore.ged: '+e+'</p>'; });
+</script>
+</body>
+</html>
