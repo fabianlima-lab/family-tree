@@ -58,6 +58,13 @@
   .st.ok{background:rgba(63,174,106,.15);color:#5ed492;border:1px solid #2e8f57}
   .st.semi{background:rgba(216,162,58,.12);color:#e7bb5e;border:1px solid #a87d2c}
   .st.todo{background:rgba(208,106,90,.12);color:#e8907f;border:1px solid #a05546}
+  .reqchip{font-family:Verdana,sans-serif;font-size:.58rem;letter-spacing:1px;color:#10141c;
+           background:var(--gold);border-radius:4px;padding:2px 6px;vertical-align:2px;margin-left:6px;font-weight:bold}
+  .optchip{font-family:Verdana,sans-serif;font-size:.58rem;letter-spacing:1px;color:var(--muted);
+           border:1px solid var(--line);border-radius:4px;padding:2px 6px;vertical-align:2px;margin-left:6px}
+  .docrow.optrow{opacity:.62}
+  .chipline{font-family:Verdana,sans-serif;font-size:.55rem;letter-spacing:1.5px;color:#10141c;
+            background:var(--gold);border-radius:4px;padding:2px 6px;display:inline-block;margin-bottom:5px;font-weight:bold}
   .docrow .info{flex:1;min-width:220px}
   .docrow .info b{font-size:.9rem}
   .docrow .info .det{color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:2px}
@@ -127,7 +134,7 @@
 <section id="dossie">
   <div class="progress-wrap">
     <div class="progress-top">
-      <span><b id="pct">—</b> do dossiê reunido</span>
+      <span><b id="pct">—</b> dos documentos EXIGIDOS reunidos</span>
       <span id="counts"></span>
     </div>
     <div class="bar" id="bar"></div>
@@ -184,64 +191,64 @@ const DOSSIE = [
   { who:'Nicola Giovanni Rossi', role:'Trisavô · dante causa 🇮🇹',
     mini:'n. Pescasseroli 11/04/1867 · ✝ Rio de Janeiro 08/03/1943',
     docs:[
-      {t:'Certidão de nascimento italiana', st:'ok',
+      {req:true, t:'Certidão de nascimento italiana', st:'ok',
        file:'documentos/certificato-nascita-nicola-rossi-1867-via-2013.jpg', thumb:'documentos/thumbs/nascita-nicola.jpg',
        d:'Atto n. 44/1867, Comune di Pescasseroli (via de 12/08/2013). Para o processo será preciso via nova (copia integrale) — pedido pronto no repositório.'},
-      {t:'Certidão negativa de naturalização (Nicola Rossi)', st:'ok',
+      {req:true, t:'Certidão negativa de naturalização (Nicola Rossi)', st:'ok',
        file:'documentos/certidao-negativa-naturalizacao-nicola-rossi.pdf', thumb:'documentos/thumbs/neg1-1.jpg',
        d:'Ministério da Justiça, 26/03/2026 — validade 90 dias (até ~24/06/2026). Renovável grátis online.'},
-      {t:'Certidão negativa de naturalização (Nicola Giovanni Rossi)', st:'ok',
+      {req:true, t:'Certidão negativa de naturalização (Nicola Giovanni Rossi)', st:'ok',
        file:'documentos/certidao-negativa-naturalizacao-nicola-giovanni-rossi.pdf', thumb:'documentos/thumbs/neg2-1.jpg',
        d:'Segunda variante do nome, mesma validade.'},
-      {t:'Certidão de óbito (1943, RJ)', st:'ok',
+      {req:true, t:'Certidão de óbito (1943, RJ)', st:'ok',
        file:'documentos/certidao-obito-nicola-rossi-1943.jpg', thumb:'documentos/thumbs/obito-nicola.jpg',
        d:'8ª Circunscrição RCPN (Tijuca), livro C-203, fl. 156, nº 32.285 — via de 2003. Recomenda-se nova via em inteiro teor para o processo.'},
-      {t:'Certidão de casamento com Maria Schettina', st:'todo',
+      {req:true, t:'Certidão de casamento com Maria Schettina', st:'todo',
        d:'Local desconhecido (Itália 1885–1900 não digitalizada; Nápoles sem registros online desse período). Melhor pista: busca no 8º RCPN/RJ — pedido pronto no repositório.'},
     ]},
   { who:'Maria Schettina', role:'Trisavó 🇮🇹',
     mini:'n. Itália ~1865 (prov. Nápoles) · ✝ Rio de Janeiro 26/07/1946',
     docs:[
-      {t:'Certidão de óbito (1946, RJ)', st:'ok',
+      {req:false, t:'Certidão de óbito (1946, RJ)', st:'ok',
        file:'documentos/certidao-obito-maria-schettina-rossi-1946.jpg', thumb:'documentos/thumbs/obito-maria.jpg',
        d:'8º RCPN, livro C-220, fl. 014, termo 42.201 — via de 2017 (inteiro teor). Filiação: Biagio Schettina e Maria Vincenza Oliva.'},
-      {t:'Certidão de nascimento italiana', st:'todo',
+      {req:false, t:'Certidão de nascimento italiana', st:'todo',
        d:'Comune desconhecido — sobrenome aponta para Nápoles. Caminho mais provável: prontuário RNE no Arquivo Nacional (pedido pronto). Nápoles ~1865 está digitalizada mas sem índices (≈15 mil páginas/ano).'},
     ]},
   { who:'Maria Narcisa Rossi das Neves', role:'Bisavó — elo da linha',
     mini:'filha de Nicola e Maria · casada com Arlindo José das Neves',
     docs:[
-      {t:'Certidão de nascimento', st:'todo', d:'Provável RJ (8º RCPN ou vizinhos) — é o elo crítico da linha. Busca no pedido nº 2.'},
-      {t:'Certidão de casamento (com Arlindo)', st:'todo', d:'Estimado 1925–1941, RJ.'},
-      {t:'Certidão de óbito', st:'todo', d:'Se falecida. Necessária para o processo.'},
+      {req:true, t:'Certidão de nascimento', st:'todo', d:'Provável RJ (8º RCPN ou vizinhos) — é o elo crítico da linha. Busca no pedido nº 2.'},
+      {req:true, t:'Certidão de casamento (com Arlindo)', st:'todo', d:'Estimado 1925–1941, RJ.'},
+      {req:true, t:'Certidão de óbito', st:'todo', d:'Se falecida. Necessária para o processo.'},
     ]},
   { who:'Fabiano Rossi das Neves', role:'Avô materno',
     mini:'n. Rio de Janeiro 26/10/1941 · advogado',
     docs:[
-      {t:'Certidão de nascimento', st:'todo', d:'RJ, 26/10/1941 — busca no 8º RCPN/CRC Nacional.'},
-      {t:'Certidão de casamento (1974, com Rosemarie)', st:'ok',
+      {req:true, t:'Certidão de nascimento', st:'todo', d:'RJ, 26/10/1941 — busca no 8º RCPN/CRC Nacional.'},
+      {req:false, t:'Certidão de casamento (1974, com Rosemarie)', st:'ok',
        file:'documentos/certidao-casamento-fabiano-rosemarie-1974.pdf', thumb:'documentos/thumbs/cas1974-1.jpg',
        d:'29º Subdistrito Santo Amaro/SP, livro B-0096, fls. 148, nº 27.273, com averbação de divórcio (1980). Prova a filiação: Arlindo × Maria Narcisa.'},
-      {t:'Casamento com Nely Aguiar (1ª esposa, avó materna)', st:'todo',
+      {req:true, t:'Casamento com Nely Aguiar (1ª esposa, avó materna)', st:'todo',
        d:'Confirmado pela certidão de Fabian (1988): a avó materna é NELY AGUIAR DAS NEVES. Localizar o casamento Fabiano × Nely (~1960s) e o óbito de Nely (antes de 31/08/1974) — busca complementar no 8º RCPN.'},
     ]},
   { who:'Flavia Cristina Aguiar das Neves', role:'Mãe',
     mini:'filha de Fabiano Rossi das Neves e Nely Aguiar das Neves',
     docs:[
-      {t:'Certidão de nascimento', st:'todo', d:'Ela sabe o cartório — pedir 2ª via em inteiro teor.'},
-      {t:'Certidão de casamento (se casada)', st:'todo', d:'Com o pai de Fabian, se houver.'},
+      {req:true, t:'Certidão de nascimento', st:'todo', d:'Ela sabe o cartório — pedir 2ª via em inteiro teor.'},
+      {req:true, t:'Certidão de casamento (se casada)', st:'todo', d:'Com o pai de Fabian, se houver.'},
     ]},
   { who:'Fabian Marcel das Neves Lima', role:'Requerente',
     mini:'',
     docs:[
-      {t:'Certidão de nascimento', st:'ok',
+      {req:true, t:'Certidão de nascimento', st:'ok',
        file:'documentos/certidao-nascimento-fabian-1988.pdf', thumb:'documentos/thumbs/nasc-fabian-1.jpg',
        d:'8ª Circunscrição (Tijuca/RJ) — o mesmo cartório do pedido nº 2! — livro 916, fls. 228, nº 115.756 (23/06/1988, Casa de Portugal). Via de 1988 anexada; para o processo pedir 2ª via em inteiro teor (já incluída no pedido complementar).'},
     ]},
   { who:'Francesco Luigi Rossi × Maria Pasquala Fracassi', role:'Tetravós — documento de apoio 🇮🇹',
     mini:'casados em Pescasseroli, 09/07/1859',
     docs:[
-      {t:'Ato de casamento original (1859)', st:'ok',
+      {req:false, t:'Ato de casamento original (1859)', st:'ok',
        file:'documentos/atto-matrimonio-1859-francesco-rossi-x-pasqua-fracassi-pescasseroli.jpg',
        thumb:'documentos/thumbs/atto1859.jpg',
        d:"Atto n. 5/1859, encontrado no Portale Antenati (Archivio di Stato dell'Aquila). Não é obrigatório no dossiê, mas prova a grafia FRACASSI e blinda a identidade do dante causa. Cópia certificada: pedido nº 4."},
@@ -250,16 +257,17 @@ const DOSSIE = [
 
 function renderDossie(){
   const wrap=document.getElementById('doclist');
-  let ok=0, semi=0, todo=0;
+  let ok=0, semi=0, todo=0, rok=0, rtot=0;
   wrap.innerHTML = DOSSIE.map(g=>{
     const rows=g.docs.map(doc=>{
       if(doc.st==='ok')ok++; else if(doc.st==='semi')semi++; else todo++;
+      if(doc.req){ rtot++; if(doc.st!=='todo') rok++; }
       const stTxt = doc.st==='ok'?'✓ obtido':doc.st==='semi'?'obtido · anexar':'falta';
       const visual = doc.thumb
         ? `<a href="${doc.file}" target="_blank" title="Abrir documento"><img class="thumb" src="${doc.thumb}" alt=""></a>`
         : `<div class="nofile">${doc.st==='todo'?'?':'📄'}</div>`;
-      return `<div class="docrow">${visual}
-        <div class="info"><b>${doc.t}</b><div class="det">${doc.d}</div></div>
+      return `<div class="docrow ${doc.req?'':'optrow'}">${visual}
+        <div class="info"><b>${doc.t}</b>${doc.req?'<span class="reqchip">EXIGIDO</span>':'<span class="optchip">apoio · opcional</span>'}<div class="det">${doc.d}</div></div>
         <span class="st ${doc.st}">${stTxt}</span></div>`;
     }).join('');
     return `<div class="person-group">
@@ -269,11 +277,11 @@ function renderDossie(){
       ${rows}</div>`;
   }).join('');
   const total=ok+semi+todo;
-  document.getElementById('pct').textContent = Math.round((ok+semi)/total*100)+'%';
+  document.getElementById('pct').textContent = Math.round(rok/rtot*100)+'%';
   document.getElementById('counts').textContent =
-    `${ok} com arquivo · ${semi} obtidos a anexar · ${todo} faltando · ${total} no total`;
+    `EXIGIDOS: ${rok} de ${rtot} obtidos · apoio/opcional: ${ok+semi-rok} de ${total-rtot} · ${todo} faltando no total`;
   document.getElementById('bar').innerHTML =
-    `<i class="ok" style="width:${ok/total*100}%"></i><i class="semi" style="width:${semi/total*100}%"></i>`;
+    `<i class="ok" style="width:${rok/rtot*100}%"></i>`;
 }
 renderDossie();
 
@@ -348,6 +356,7 @@ function ancestry(P,F,rootId){
 const tree=document.getElementById('tree'), wires=document.getElementById('wires'),
       panel=document.getElementById('panel');
 let DATA;
+const TRANSMIT = new Set(['@I1@','@I2@','@I3@','@I6@','@I7@']); // Fabian, Flavia, Fabiano, Narcisa, Nicola
 const GENLABEL=['Requerente','Pais','Avós','Bisavós','Trisavós','Tetravós','Pentavós','Hexavós'];
 
 function flag(p){ if(/Ital/i.test(p.bp)) return '🇮🇹'; if(/Brasil/i.test(p.bp)) return '🇧🇷'; return ''; }
@@ -355,8 +364,10 @@ function flag(p){ if(/Ital/i.test(p.bp)) return '🇮🇹'; if(/Brasil/i.test(p.
 function cardHTML(p,inLine){
   const y1=year(p.bd),y2=year(p.dd);
   const dates=y1||y2?`${y1?(p.bd.startsWith('ABT')?'~':'')+y1:'?'} – ${y2||(p.dd?fdate(p.dd):'')}`:'';
+  const chip = p.id==='@I7@' ? '🇮🇹 DANTE CAUSA' : (inLine ? 'LINHA DA CIDADANIA' : '');
   return `<div class="card ${inLine?'line':''}" data-id="${p.id}" id="card-${p.id.replace(/@/g,'')}">
     <span class="flag">${flag(p)}</span>
+    ${chip?`<div class="chipline">${chip}</div>`:''}
     <h3>${p.name}</h3>
     <div class="dates">${dates}</div>
     ${p.bp?`<div class="place">${p.bp.split(',').slice(0,2).join(',')}</div>`:''}
@@ -372,11 +383,11 @@ function render(){
     const row=document.createElement('div'); row.className='gen'; row.dataset.gen=gi;
     row.innerHTML=`<div class="gen-label">${GENLABEL[gi]||'G'+gi}</div>`;
     for(const grp of gens[gi]){
-      if(gi===0){ row.innerHTML+=cardHTML(P[grp[1]],true); continue; }
+      if(gi===0){ row.innerHTML+=cardHTML(P[grp[1]],TRANSMIT.has(grp[1])); continue; }
       const [famId,h,w]=grp; const f=F[famId];
       const ring=f.md?`💍 ${fdate(f.md)}`:'';
       let html=`<div class="couple" data-fam="${famId}">${ring?`<span class="ring">${ring}</span>`:''}`;
-      for(const pid of [h,w]) if(pid) html+=cardHTML(P[pid],lineSet.has(pid));
+      for(const pid of [h,w]) if(pid) html+=cardHTML(P[pid],TRANSMIT.has(pid));
       html+='</div>';
       row.innerHTML+=html;
     }
