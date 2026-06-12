@@ -100,7 +100,14 @@ A família morava na Rua Duque de Caxias, 21 — os óbitos de 1943/1946 foram l
 
 ## 4. Archivio di Stato dell'Aquila — cópia certificada do casamento de 1859
 
-**E-mail:** as-aq@cultura.gov.it (conferir no site)
+**Procedimento oficial** ([ricerche per corrispondenza](https://archiviodistatolaquila.cultura.gov.it/altri-servizi-al-pubblico/ricerche-per-corrispondenza)):
+baixar o formulário na página de [modulistica](https://archiviodistatolaquila.cultura.gov.it/altri-servizi-al-pubblico/modulistica),
+preencher, **assinar**, anexar cópia de documento de identidade e enviar para
+as-aq@cultura.gov.it. Resposta em até 30 dias (Lei 241/1990).
+⚠️ O Archivio **não emite documentos válidos para o processo de cidadania** —
+estes só o comune emite (pedido nº 3). Esta cópia serve como prova de apoio/retificação.
+
+**E-mail:** as-aq@cultura.gov.it · PEC: as-aq@pec.cultura.gov.it · tel +39 0862 442068
 **Oggetto:** Richiesta riproduzione — atto di matrimonio, Pescasseroli 1859
 
 > Spett.le Archivio di Stato dell'Aquila,
