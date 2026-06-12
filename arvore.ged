@@ -23,6 +23,7 @@
 0 @I3@ INDI
 1 NAME Fabiano /Rossi das Neves/
 1 SEX M
+1 FAMS @F11@
 1 BIRT
 2 DATE 26 OCT 1941
 2 PLAC Rio de Janeiro, RJ, Brasil
@@ -42,14 +43,23 @@
 0 @I5@ INDI
 1 NAME Arlindo Jose /das Neves/
 1 SEX M
+1 BIRT
+2 DATE ABT 1899
+1 DEAT
+2 DATE ABT 1970
 1 FAMS @F3@
-1 NOTE Declarante do obito de Maria Schettina Rossi em 1946.
+1 NOTE Declarante do obito de Maria Schettina Rossi em 1946. Datas 1899-1970 da arvore de primo - confirmar. Mae possivelmente Maria Leopoldina do Nascimento (1877-1901), avos Francisco do Nascimento x Maria da Cruz (mesma fonte).
 0 @I6@ INDI
 1 NAME Maria Narcisa /Rossi das Neves/
 1 SEX F
+1 BIRT
+2 DATE ABT 1908
+2 PLAC Rio de Janeiro, RJ, Brasil (presumido)
+1 DEAT
+2 DATE ABT 1995
 1 FAMC @F4@
 1 FAMS @F3@
-1 NOTE Filha de Nicola Giovanni Rossi e Maria Schettina (a confirmar com certidao de nascimento). Elo da linha italiana.
+1 NOTE Filha de Nicola Giovanni Rossi e Maria Schettina (a confirmar com certidao de nascimento). Elo da linha italiana. Datas 1908-1995 da arvore de primo (FamilySearch) - confirmar com certidoes.
 0 @I7@ INDI
 1 NAME Nicola Giovanni /Rossi/
 1 SEX M
@@ -70,7 +80,7 @@
 1 NAME Maria /Schettina/
 1 SEX F
 1 BIRT
-2 DATE ABT 1865
+2 DATE 1865
 2 PLAC Italia
 2 NOTE Comune de nascimento desconhecido (81 anos ao falecer em 1946).
 1 DEAT
@@ -203,4 +213,22 @@
 1 HUSB @I19@
 1 WIFE @I20@
 1 CHIL @I17@
+0 @I21@ INDI
+1 NAME Marinete /Rocha/
+1 SEX F
+1 DEAT
+2 DATE ABT 1990
+1 FAMS @F11@
+1 NOTE Companheira/esposa de Fabiano (arvore de primo - a confirmar).
+0 @I22@ INDI
+1 NAME Fabiane /Rocha das Neves/
+1 SEX F
+1 BIRT
+2 DATE ABT 1977
+1 FAMC @F11@
+1 NOTE Filha de Fabiano com Marinete Rocha (arvore de primo). Mae de Claudio Lucas Neves de Melo (n. 2000), o primo que compartilhou a arvore.
+0 @F11@ FAM
+1 HUSB @I3@
+1 WIFE @I21@
+1 CHIL @I22@
 0 TRLR
