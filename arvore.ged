@@ -9,12 +9,17 @@
 0 @I1@ INDI
 1 NAME Fabian Marcel /das Neves Lima/
 1 SEX M
+1 BIRT
+2 DATE 23 JUN 1988
+2 PLAC Casa de Portugal, Rio de Janeiro, RJ, Brasil
+2 NOTE Registro: 8a Circunscricao RCPN (Tijuca/RJ), livro 916, fls. 228, no 115756. Nascido as 22h55.
 1 FAMC @F1@
 0 @I2@ INDI
 1 NAME Flavia Cristina /Aguiar das Neves/
 1 SEX F
 1 FAMC @F2@
 1 FAMS @F1@
+1 NOTE Filha de Fabiano Rossi das Neves e Nely Aguiar das Neves (avos maternos na certidao de nascimento do filho, 1988).
 0 @I3@ INDI
 1 NAME Fabiano /Rossi das Neves/
 1 SEX M
@@ -105,11 +110,14 @@
 1 SEX F
 1 FAMS @F6@
 0 @F1@ FAM
+1 HUSB @I17@
 1 WIFE @I2@
 1 CHIL @I1@
 0 @F2@ FAM
 1 HUSB @I3@
+1 WIFE @I18@
 1 CHIL @I2@
+1 NOTE Nely provavelmente a 1a esposa de Fabiano (viuvo em 1974); casamento e obito dela a localizar.
 0 @F3@ FAM
 1 HUSB @I5@
 1 WIFE @I6@
@@ -172,4 +180,27 @@
 1 HUSB @I15@
 1 WIFE @I16@
 1 CHIL @I10@
+0 @I17@ INDI
+1 NAME Samuel /Lima Neto/
+1 SEX M
+1 FAMC @F10@
+1 FAMS @F1@
+1 NOTE Pai de Fabian (ramo paterno, a pesquisar depois).
+0 @I18@ INDI
+1 NAME Nely /Aguiar das Neves/
+1 SEX F
+1 FAMS @F2@
+1 NOTE Avo materna de Fabian (certidao de nascimento de 1988). Provavelmente falecida antes de 31/08/1974 (Fabiano constava viuvo).
+0 @I19@ INDI
+1 NAME Nilton Marcel /de Lima/
+1 SEX M
+1 FAMS @F10@
+0 @I20@ INDI
+1 NAME Maria Deusdeth /da Silva Lima/
+1 SEX F
+1 FAMS @F10@
+0 @F10@ FAM
+1 HUSB @I19@
+1 WIFE @I20@
+1 CHIL @I17@
 0 TRLR

@@ -8,9 +8,14 @@ fornecidas em imagem (óbitos de Nicola e Maria Schettina, nascimento italiano d
 ## Geração 0 — Requerente
 
 ### Fabian Marcel das Neves Lima
+- **Nascimento:** 23/06/1988, às 22h55, Casa de Portugal, Rio de Janeiro/RJ
+  - Registro: **8ª Circunscrição RCPN (Tijuca)** — o mesmo cartório dos óbitos de
+    Nicola e Maria Schettina! — livro 916, fls. 228, nº 115.756
 - **Mãe:** Flavia Cristina Aguiar das Neves
-- **Pai:** (sobrenome Lima — ramo a ser pesquisado depois)
-- 📄 Pendente: certidão de nascimento
+- **Pai:** Samuel Lima Neto (avós paternos: Nilton Marcel de Lima e Maria Deusdeth
+  da Silva Lima — ramo a pesquisar depois)
+- **Passaporte:** FU836167, válido até 01/01/2028
+- 📄 Para o processo: 2ª via em inteiro teor (mesmo cartório do pedido nº 2)
 
 ---
 
@@ -18,9 +23,9 @@ fornecidas em imagem (óbitos de Nicola e Maria Schettina, nascimento italiano d
 
 ### Flavia Cristina Aguiar das Neves
 - **Pai:** Fabiano Rossi das Neves
-- **Mãe:** (provavelmente sobrenome **Aguiar** — a confirmar; Fabiano constava
-  como **viúvo** ao casar-se em 1974, então a mãe de Flavia pode ser a primeira esposa)
-- 📄 Pendente: certidão de nascimento, certidão de casamento (com o pai de Fabian)
+- **Mãe:** **Nely Aguiar das Neves** ✓ (confirmada na certidão de nascimento do
+  filho, 1988) — provavelmente a 1ª esposa de Fabiano, falecida antes de 31/08/1974
+- 📄 Pendente: certidão de nascimento, certidão de casamento (com Samuel Lima Neto, se casados)
 
 ---
 
@@ -31,7 +36,8 @@ fornecidas em imagem (óbitos de Nicola e Maria Schettina, nascimento italiano d
 - **Pai:** Arlindo José das Neves
 - **Mãe:** Maria Narcisa Rossi das Neves
 - **Profissão:** advogado
-- **Estado civil ao casar em 1974:** viúvo (houve um casamento anterior — esposa falecida)
+- **1ª esposa:** **Nely Aguiar (das Neves)** — mãe de Flavia; falecida antes de
+  31/08/1974 (Fabiano constava viúvo no 2º casamento)
 - **2º casamento:** 31/08/1974, 29º Subdistrito Santo Amaro, São Paulo/SP, com
   **Rosemarie de Paiva Souza** (n. 27/08/1946, Piraju/SP, filha de Pedro Francisco
   de Souza e Hodirma de Paiva Souza), regime de comunhão universal de bens
