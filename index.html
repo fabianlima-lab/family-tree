@@ -3,25 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Árvore Genealógica — das Neves · Rossi</title>
+<title>Cidadania Italiana — Dossiê da Família das Neves · Rossi</title>
 <style>
   :root{
     --bg:#10141c; --panel:#1a2030; --card:#202940; --card2:#26314e;
     --ink:#e8e4d8; --muted:#9aa3b8; --gold:#d4af37; --green:#3fae6a;
-    --line:#3a4666; --hl:#d4af37;
+    --red:#d06a5a; --amber:#d8a23a; --line:#3a4666;
   }
   *{box-sizing:border-box}
   body{margin:0;background:radial-gradient(1200px 600px at 50% -100px,#1c2436 0%,var(--bg) 60%);
        color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
-  header{text-align:center;padding:38px 16px 10px}
-  header h1{font-size:clamp(1.5rem,4vw,2.4rem);margin:0;letter-spacing:.5px}
+  header{text-align:center;padding:36px 16px 8px}
+  header h1{font-size:clamp(1.4rem,4vw,2.2rem);margin:0;letter-spacing:.5px}
   header h1 .amp{color:var(--gold);font-style:italic}
-  header p{color:var(--muted);margin:.6em auto 0;max-width:640px;font-size:.95rem;line-height:1.5}
-  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px;
-          font-size:.8rem;color:var(--muted);font-family:Verdana,sans-serif}
-  .legend span{display:flex;align-items:center;gap:6px}
-  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-  #treewrap{position:relative;overflow-x:auto;padding:10px 0 40px}
+  header .tag{color:var(--gold);font-family:Verdana,sans-serif;font-size:.7rem;
+              text-transform:uppercase;letter-spacing:3px;margin-bottom:8px}
+  header p{color:var(--muted);margin:.6em auto 0;max-width:660px;font-size:.92rem;line-height:1.5}
+  nav{display:flex;justify-content:center;gap:10px;margin:20px 0 6px;font-family:Verdana,sans-serif}
+  nav a{color:var(--muted);text-decoration:none;font-size:.78rem;padding:8px 16px;
+        border:1px solid var(--line);border-radius:20px;transition:.2s}
+  nav a:hover,nav a.active{color:var(--gold);border-color:var(--gold)}
+  section{max-width:1060px;margin:0 auto;padding:26px 18px}
+  h2.sec{font-size:1.25rem;border-bottom:1px solid var(--line);padding-bottom:8px;margin:6px 0 4px}
+  .sec-sub{color:var(--muted);font-size:.85rem;margin:0 0 18px;line-height:1.5}
+
+  /* progresso */
+  .progress-wrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+                 padding:20px 22px;margin:14px 0 8px}
+  .progress-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;
+                font-family:Verdana,sans-serif;font-size:.8rem;color:var(--muted)}
+  .progress-top b{color:var(--ink);font-size:1.05rem}
+  .bar{height:14px;background:#141a28;border-radius:8px;margin-top:10px;overflow:hidden;display:flex}
+  .bar i{display:block;height:100%}
+  .bar .ok{background:linear-gradient(90deg,#2e8f57,#3fae6a)}
+  .bar .semi{background:var(--amber)}
+  .keys{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-family:Verdana,sans-serif;
+        font-size:.72rem;color:var(--muted)}
+  .keys span{display:flex;align-items:center;gap:6px}
+  .k{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+  /* grupos de pessoa */
+  .person-group{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+                margin:16px 0;overflow:hidden}
+  .person-head{display:flex;align-items:center;gap:12px;padding:14px 18px;
+               background:linear-gradient(160deg,var(--card2),var(--card));flex-wrap:wrap}
+  .person-head .who{flex:1;min-width:200px}
+  .person-head h3{margin:0;font-size:1.02rem}
+  .person-head .role{color:var(--gold);font-family:Verdana,sans-serif;font-size:.66rem;
+                     text-transform:uppercase;letter-spacing:2px}
+  .person-head .mini{color:var(--muted);font-size:.76rem;font-family:Verdana,sans-serif}
+  .docrow{display:flex;gap:14px;padding:13px 18px;border-top:1px solid #232c44;align-items:center;flex-wrap:wrap}
+  .docrow .st{font-family:Verdana,sans-serif;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;
+              padding:4px 9px;border-radius:12px;white-space:nowrap}
+  .st.ok{background:rgba(63,174,106,.15);color:#5ed492;border:1px solid #2e8f57}
+  .st.semi{background:rgba(216,162,58,.12);color:#e7bb5e;border:1px solid #a87d2c}
+  .st.todo{background:rgba(208,106,90,.12);color:#e8907f;border:1px solid #a05546}
+  .docrow .info{flex:1;min-width:220px}
+  .docrow .info b{font-size:.9rem}
+  .docrow .info .det{color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:2px}
+  .thumb{width:74px;height:96px;object-fit:cover;border-radius:6px;border:1px solid var(--line);
+         cursor:pointer;transition:.2s;background:#0d111a}
+  .thumb:hover{transform:scale(1.05);border-color:var(--gold)}
+  .nofile{width:74px;height:96px;border:1px dashed var(--line);border-radius:6px;display:flex;
+          align-items:center;justify-content:center;color:var(--muted);font-size:1.4rem}
+  .next{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.35);border-radius:14px;
+        padding:18px 22px;margin:20px 0;font-size:.9rem;line-height:1.65}
+  .next h3{margin:0 0 8px;color:var(--gold);font-size:1rem}
+  .next ol{margin:0;padding-left:20px}
+  .next a{color:var(--gold)}
+
+  /* árvore (mesmo motor de antes) */
+  #treewrap{position:relative;overflow-x:auto;padding:10px 0 30px}
   #tree{position:relative;min-width:840px;max-width:1100px;margin:0 auto;padding:0 20px}
   svg#wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
   .gen{position:relative;z-index:1;display:flex;justify-content:center;gap:34px;margin:0 0 56px;flex-wrap:nowrap}
@@ -35,7 +87,7 @@
   .card{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);
         border-radius:10px;padding:12px 14px;width:200px;cursor:pointer;transition:.18s;
         box-shadow:0 4px 14px rgba(0,0,0,.35)}
-  .card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+  .card:hover{transform:translateY(-3px);border-color:var(--gold)}
   .card.line{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 6px 16px rgba(212,175,55,.15)}
   .card .flag{float:right;font-size:1rem}
   .card h3{margin:0 0 4px;font-size:.92rem;line-height:1.25}
@@ -62,17 +114,55 @@
 </head>
 <body>
 <header>
+  <div class="tag">Processo de Cidadania Italiana · jure sanguinis</div>
   <h1>Família das Neves <span class="amp">&amp;</span> Rossi</h1>
-  <p>De Pescasseroli, nos Abruzos, ao Rio de Janeiro — sete gerações documentadas.
-     Clique em uma pessoa para ver detalhes e fontes.</p>
-  <div class="legend">
-    <span><span class="dot" style="background:var(--gold)"></span> linha de transmissão da cidadania italiana</span>
-    <span>🇮🇹 nascido(a) na Itália</span>
-    <span>🇧🇷 nascido(a) no Brasil</span>
-  </div>
+  <p>Dossiê documental da linha <b>Nicola Giovanni Rossi</b> (Pescasseroli, 1867) →
+     Fabian Marcel das Neves Lima. Documentos obtidos, pendentes e os originais digitalizados.</p>
+  <nav>
+    <a href="#dossie" class="active">📋 Dossiê</a>
+    <a href="#arvore">🌳 Árvore</a>
+  </nav>
 </header>
 
-<div id="treewrap"><div id="tree"><svg id="wires"></svg></div></div>
+<section id="dossie">
+  <div class="progress-wrap">
+    <div class="progress-top">
+      <span><b id="pct">—</b> do dossiê reunido</span>
+      <span id="counts"></span>
+    </div>
+    <div class="bar" id="bar"></div>
+    <div class="keys">
+      <span><span class="k" style="background:#3fae6a"></span> obtido, arquivo no site</span>
+      <span><span class="k" style="background:var(--amber)"></span> obtido (anexar cópia digital)</span>
+      <span><span class="k" style="background:#a05546"></span> falta obter</span>
+    </div>
+  </div>
+  <div id="doclist"></div>
+  <div class="next">
+    <h3>⚠️ Os 3 próximos passos que mais destravam o processo</h3>
+    <ol>
+      <li><b>Arquivo Nacional (RNE):</b> pedir os prontuários de estrangeiro de Nicola e Maria Schettina —
+          deve revelar o comune de nascimento dela e o navio de chegada.</li>
+      <li><b>8º RCPN (Tijuca/RJ):</b> busca do casamento Nicola × Maria e dos registros da Maria Narcisa
+          (nascimento, casamento, óbito) e do Fabiano (nascimento, 1941).</li>
+      <li><b>Família:</b> certidões de nascimento de Flavia e Fabian (vocês sabem os cartórios) e
+          identificar a 1ª esposa de Fabiano (provável avó materna).</li>
+    </ol>
+    <p style="margin:10px 0 0">📨 Textos prontos para envio:
+       <a href="https://github.com/fabianlima-lab/family-tree/blob/main/pedidos-prontos.md">pedidos-prontos.md</a> ·
+       Estratégia completa: <a href="https://github.com/fabianlima-lab/family-tree/blob/main/cidadania-italiana.md">cidadania-italiana.md</a></p>
+    <p style="margin:8px 0 0;color:var(--muted);font-size:.8rem">Nota jurídica: pela Lei italiana 74/2025 e pelo caso
+       de transmissão materna pré-1948 (Fabiano, n. 1941, filho de Maria Narcisa), este caso tende à
+       <b>via judicial</b> — confirme a estratégia com advogado especialista antes de apostilar/traduzir.</p>
+  </div>
+</section>
+
+<section id="arvore">
+  <h2 class="sec">🌳 Árvore — sete gerações documentadas</h2>
+  <p class="sec-sub">De Pescasseroli (Abruzos) e Nápoles ao Rio de Janeiro. A linha dourada é a
+     transmissão da cidadania. Clique em uma pessoa para detalhes e fontes.</p>
+  <div id="treewrap"><div id="tree"><svg id="wires"></svg></div></div>
+</section>
 
 <aside id="panel">
   <button class="close" onclick="panel.classList.remove('open')">×</button>
@@ -82,13 +172,106 @@
 </aside>
 
 <footer>
-  Gerado a partir do <a href="arvore.ged">arvore.ged</a> (GEDCOM) deste repositório ·
-  pesquisa documental em cartórios do RJ e no Portale Antenati ·
-  <a href="https://github.com/fabianlima-lab/family-tree">fabianlima-lab/family-tree</a>
+  Gerado a partir do <a href="arvore.ged">arvore.ged</a> (GEDCOM) ·
+  pesquisa em cartórios do RJ e no Portale Antenati ·
+  <a href="https://github.com/fabianlima-lab/family-tree">repositório completo</a>
 </footer>
 
 <script>
-/* ---------- mini parser GEDCOM ---------- */
+/* ================== DOSSIÊ ================== */
+const DOSSIE = [
+  { who:'Nicola Giovanni Rossi', role:'Trisavô · dante causa 🇮🇹',
+    mini:'n. Pescasseroli 11/04/1867 · ✝ Rio de Janeiro 08/03/1943',
+    docs:[
+      {t:'Certidão de nascimento italiana', st:'semi',
+       d:'Atto n. 44/1867, Comune di Pescasseroli — obtida em 2013. Para o processo será preciso via nova (copia integrale); pedido pronto no repositório. Me envie a foto da certidão de 2013 para anexar aqui.'},
+      {t:'Certidão negativa de naturalização (Nicola Rossi)', st:'ok',
+       file:'documentos/certidao-negativa-naturalizacao-nicola-rossi.pdf', thumb:'documentos/thumbs/neg1-1.jpg',
+       d:'Ministério da Justiça, 26/03/2026 — validade 90 dias (até ~24/06/2026). Renovável grátis online.'},
+      {t:'Certidão negativa de naturalização (Nicola Giovanni Rossi)', st:'ok',
+       file:'documentos/certidao-negativa-naturalizacao-nicola-giovanni-rossi.pdf', thumb:'documentos/thumbs/neg2-1.jpg',
+       d:'Segunda variante do nome, mesma validade.'},
+      {t:'Certidão de óbito (1943, RJ)', st:'semi',
+       d:'8ª Circunscrição RCPN (Tijuca), livro C-203, fl. 156, nº 32.285 — você tem a via de 2003. Me envie a foto/scan para anexar aqui. Recomenda-se nova via em inteiro teor.'},
+      {t:'Certidão de casamento com Maria Schettina', st:'todo',
+       d:'Local desconhecido (Itália 1885–1900 não digitalizada; Nápoles sem registros online desse período). Melhor pista: busca no 8º RCPN/RJ — pedido pronto no repositório.'},
+    ]},
+  { who:'Maria Schettina', role:'Trisavó 🇮🇹',
+    mini:'n. Itália ~1865 (prov. Nápoles) · ✝ Rio de Janeiro 26/07/1946',
+    docs:[
+      {t:'Certidão de óbito (1946, RJ)', st:'semi',
+       d:'8º RCPN, livro C-220, fl. 014, termo 42.201 — você tem a via de 2017 (inteiro teor). Me envie a foto para anexar.'},
+      {t:'Certidão de nascimento italiana', st:'todo',
+       d:'Comune desconhecido — sobrenome aponta para Nápoles. Caminho mais provável: prontuário RNE no Arquivo Nacional (pedido pronto). Nápoles ~1865 está digitalizada mas sem índices (≈15 mil páginas/ano).'},
+    ]},
+  { who:'Maria Narcisa Rossi das Neves', role:'Bisavó — elo da linha',
+    mini:'filha de Nicola e Maria · casada com Arlindo José das Neves',
+    docs:[
+      {t:'Certidão de nascimento', st:'todo', d:'Provável RJ (8º RCPN ou vizinhos) — é o elo crítico da linha. Busca no pedido nº 2.'},
+      {t:'Certidão de casamento (com Arlindo)', st:'todo', d:'Estimado 1925–1941, RJ.'},
+      {t:'Certidão de óbito', st:'todo', d:'Se falecida. Necessária para o processo.'},
+    ]},
+  { who:'Fabiano Rossi das Neves', role:'Avô materno',
+    mini:'n. Rio de Janeiro 26/10/1941 · advogado',
+    docs:[
+      {t:'Certidão de nascimento', st:'todo', d:'RJ, 26/10/1941 — busca no 8º RCPN/CRC Nacional.'},
+      {t:'Certidão de casamento (1974, com Rosemarie)', st:'ok',
+       file:'documentos/certidao-casamento-fabiano-rosemarie-1974.pdf', thumb:'documentos/thumbs/cas1974-1.jpg',
+       d:'29º Subdistrito Santo Amaro/SP, livro B-0096, fls. 148, nº 27.273, com averbação de divórcio (1980). Prova a filiação: Arlindo × Maria Narcisa.'},
+      {t:'1º casamento + óbito da 1ª esposa', st:'todo',
+       d:'Fabiano constava viúvo em 1974. Se a 1ª esposa for a mãe de Flavia (provável "Aguiar"), esses documentos entram no dossiê. Perguntar à família.'},
+    ]},
+  { who:'Flavia Cristina Aguiar das Neves', role:'Mãe',
+    mini:'filha de Fabiano',
+    docs:[
+      {t:'Certidão de nascimento', st:'todo', d:'Ela sabe o cartório — pedir 2ª via em inteiro teor.'},
+      {t:'Certidão de casamento (se casada)', st:'todo', d:'Com o pai de Fabian, se houver.'},
+    ]},
+  { who:'Fabian Marcel das Neves Lima', role:'Requerente',
+    mini:'',
+    docs:[
+      {t:'Certidão de nascimento', st:'todo', d:'Pedir 2ª via em inteiro teor no cartório de registro.'},
+    ]},
+  { who:'Francesco Luigi Rossi × Maria Pasquala Fracassi', role:'Tetravós — documento de apoio 🇮🇹',
+    mini:'casados em Pescasseroli, 09/07/1859',
+    docs:[
+      {t:'Ato de casamento original (1859)', st:'ok',
+       file:'documentos/atto-matrimonio-1859-francesco-rossi-x-pasqua-fracassi-pescasseroli.jpg',
+       thumb:'documentos/thumbs/atto1859.jpg',
+       d:'Atto n. 5/1859, encontrado no Portale Antenati (Archivio di Stato dell\\'Aquila). Não é obrigatório no dossiê, mas prova a grafia FRACASSI e blinda a identidade do dante causa. Cópia certificada: pedido nº 4.'},
+    ]},
+];
+
+function renderDossie(){
+  const wrap=document.getElementById('doclist');
+  let ok=0, semi=0, todo=0;
+  wrap.innerHTML = DOSSIE.map(g=>{
+    const rows=g.docs.map(doc=>{
+      if(doc.st==='ok')ok++; else if(doc.st==='semi')semi++; else todo++;
+      const stTxt = doc.st==='ok'?'✓ obtido':doc.st==='semi'?'obtido · anexar':'falta';
+      const visual = doc.thumb
+        ? `<a href="${doc.file}" target="_blank" title="Abrir documento"><img class="thumb" src="${doc.thumb}" alt=""></a>`
+        : `<div class="nofile">${doc.st==='todo'?'?':'📄'}</div>`;
+      return `<div class="docrow">${visual}
+        <div class="info"><b>${doc.t}</b><div class="det">${doc.d}</div></div>
+        <span class="st ${doc.st}">${stTxt}</span></div>`;
+    }).join('');
+    return `<div class="person-group">
+      <div class="person-head"><div class="who">
+        <div class="role">${g.role}</div><h3>${g.who}</h3>
+        ${g.mini?`<div class="mini">${g.mini}</div>`:''}</div></div>
+      ${rows}</div>`;
+  }).join('');
+  const total=ok+semi+todo;
+  document.getElementById('pct').textContent = Math.round((ok+semi)/total*100)+'%';
+  document.getElementById('counts').textContent =
+    `${ok} com arquivo · ${semi} obtidos a anexar · ${todo} faltando · ${total} no total`;
+  document.getElementById('bar').innerHTML =
+    `<i class="ok" style="width:${ok/total*100}%"></i><i class="semi" style="width:${semi/total*100}%"></i>`;
+}
+renderDossie();
+
+/* ================== ÁRVORE (GEDCOM) ================== */
 async function loadGed(){
   const txt = await (await fetch('arvore.ged')).text();
   const lines = txt.split(/\r?\n/);
@@ -112,7 +295,6 @@ function fdate(d){ if(!d) return '';
           .replace(/\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b/g,x=>MES[x]); }
 function year(d){ const m=(d||'').match(/\d{4}/); return m?m[0]:''; }
 
-/* ---------- modelo ---------- */
 function build(recs){
   const P={},F={};
   for(const id in recs){ const r=recs[id];
@@ -141,9 +323,8 @@ function build(recs){
   return {P,F};
 }
 
-/* linha de ascendência a partir de I1 */
 function ancestry(P,F,rootId){
-  const lineSet=new Set([rootId]); const gens=[[ [null,rootId] ]]; // [famId, personId]
+  const lineSet=new Set([rootId]); const gens=[[ [null,rootId] ]];
   let frontier=[rootId];
   while(true){
     const next=[],row=[];
@@ -158,14 +339,12 @@ function ancestry(P,F,rootId){
   return {gens,lineSet};
 }
 
-/* ---------- render ---------- */
 const tree=document.getElementById('tree'), wires=document.getElementById('wires'),
       panel=document.getElementById('panel');
 let DATA;
 const GENLABEL=['Requerente','Pais','Avós','Bisavós','Trisavós','Tetravós','Pentavós','Hexavós'];
 
-function flag(p){ const t=(p.bp||'')+' '+(p.note||'');
-  if(/Ital/i.test(p.bp)) return '🇮🇹'; if(/Brasil/i.test(p.bp)) return '🇧🇷'; return ''; }
+function flag(p){ if(/Ital/i.test(p.bp)) return '🇮🇹'; if(/Brasil/i.test(p.bp)) return '🇧🇷'; return ''; }
 
 function cardHTML(p,inLine){
   const y1=year(p.bd),y2=year(p.dd);
@@ -183,7 +362,6 @@ function render(){
   const {P,F}=DATA;
   const {gens,lineSet}=ancestry(P,F,'@I1@');
   tree.querySelectorAll('.gen').forEach(e=>e.remove());
-  // do topo (mais antigo) para a base
   for(let gi=gens.length-1;gi>=0;gi--){
     const row=document.createElement('div'); row.className='gen'; row.dataset.gen=gi;
     row.innerHTML=`<div class="gen-label">${GENLABEL[gi]||'G'+gi}</div>`;

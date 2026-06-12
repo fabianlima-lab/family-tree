@@ -51,6 +51,24 @@ imagem 10. Cópia em
   casou com Gerardo Costini em 1863 — **não confundir** com a tetravó
   Maria Pasquala (filha de Domenico).
 
+## ★ Nascimentos dos tetravós encontrados (Nati 1836)
+
+Varredura dos registros de nascimento de 1836 (notamenti/avisos de batismo à paróquia
+de San Pietro e Paolo):
+
+- **Slip n. 47 — 13/05/1836**: nascimento de **"Luigi Rossi"**, filho de **Giovanni
+  Rossi** e **Maria [Rosaria] Del Principe** — identificação provável do tetravô
+  *Francesco Luigi Rossi* (pais batem exatamente; no casamento de 1859 declarou 24
+  anos, ~1835). Batizado no mesmo dia.
+- **Slip n. 48 — ~17/05/1836**: nascimento de **Maria Pasquala Fracassi**, filha de
+  **Domenico Fracassi** e **Giovanna Saltarelli**, strada Valle Sant'Antonio —
+  a tetravó, confirmada. Batizada no mesmo dia.
+
+Os dois nasceram com poucos dias de diferença, em slips consecutivos — e casaram-se
+23 anos depois. Imagens: `/tmp/nati_pescasseroli/1836_p053.jpg` e `1836_p054.jpg`
+(a varredura do registro de atos longos de 1836 e do ano 1835 ficou incompleta por
+limite de sessão — retomável).
+
 ## Próximos alvos em Pescasseroli (registros NÃO digitalizados — pedir ao comune/Archivio)
 - [ ] Nascimento de Nicola Giovanni Rossi — atto 44/1867 (copia integrale)
 - [ ] Nascimento de Francesco Luigi Rossi (~1835) e Maria Pasquala Fracassi (~1836)
